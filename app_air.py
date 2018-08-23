@@ -49,9 +49,21 @@ def process_request(req):
         speech = ""
 
         if game_item is None or not game_item:
-            speech = "알려고 하는 아이템을 적어주세요. (ex, 신전)"
+
+            # 게임아이템 혹은 게임 이름을 지정하지 않았을 경우.
+            if game_name is None or not game_name:
+                speech = "게임이름 및 아이템 이름을 알려주세요~."
+
+            # 게임에 관핸서 물어볼 경우.
+            elif game_name == '아이언쓰론':
+                speech = game_name + ': 왕좌를 향한 위대한 전략 게임! 아이언쓰론. 아이언쓰론은 마법과 드래곤이 부활한 시대를 배경으로,' \
+                         '왕좌를 차지하기 위한 장대한 전투를 체험할 수 있는 실시간 전략 게임입니다.'
+            # 알려고 하는 게임이 아이언쓰론이 아닌 경우.
+            else:
+                speech = "알려고 하는 아이템을 적어주세요. (ex, 신전)"
+
         else:
-            if game_name == '아이언쓰론' and game_item == '신전':
+            if game_item == '신전':
                 speech = game_item + ": 매일 일정 횟수 만큼 무료로 소원을 빌거나 골드를 소모해, 5종의 자원 중 한가지를 선택해 소량 획득할 수 있습니다." \
                                      "또한, 조건에 따라 전투에서 사망한 병력을 부활시킬 수도 있습니다." \
                                      "레벨이 오를 수록 획득 가능한 자원량과 무료 소원 횟수가 증가합니다."
