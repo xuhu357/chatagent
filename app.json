@@ -1,7 +1,6 @@
 {
-  "name": "air rober",
-  "description": "webhook demonstration",
-  "repository": "https://github.com/xuhu357/airchatbot",
-  "logo": "http://xvir.github.io/img/apiai.png",
-  "keywords": ["air robert, "natural language"]
+  "name": "ironthrone chatbot",
+  "description": "webhook for ironthrone chat service",
+  "repository": "https://github.com/xuhu357/chatagent",
+  "keywords": ["chat bot", "natural language processing"]
 }
