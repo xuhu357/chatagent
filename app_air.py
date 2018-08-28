@@ -75,6 +75,44 @@ def process_request(req):
             "displayText": speech,
             "source": "Iron Throne service "
         }
+    elif req.get("result").get("action") == "method_action":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        game_goal = parameters.get("game_goal")
+        speech = ""
+
+        if game_goal == '영지 발전':
+            speech = '1. 건물 건설과 업그레이드. ' \
+                     '2. 성벽 밖 건물의 이용. ' \
+                     '3. 연구로 효율 향상. ' \
+                     '4. 영주 레별과 영주 스킬. ' \
+                     '알려고 하는 내용을 입력해 주세요. (ex, 건물 건설, 연구 등)'
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "source": "Iron Throne service "
+        }
+    elif req.get("result").get("action") == "method.details-contexts:game-goal":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        game_contents = parameters.get("game_contents")
+        speech = ""
+
+        if game_contents == '건물 건설':
+            speech = '영지의 건물들 중, 성벽 안쪽의 건물들 일부는 궁성레벨이 오르면 자동으로 건설되어 이용이' \
+                     ' 가능하며, 성벽 바깥 구역의 경작지는 직접 한 곳을 선택해서 건물을 지을 수 있습니다.'
+        elif game_contents == '연구':
+            speech = '영지 내부 건물 중 아카데미에서는 전투, 생산, 도시, 행군 속도, 차원전, 제작, 부대 숙련 등' \
+                     ' 영주님의 영지 발전과 전투에 도움이 되는 다양한 연구를 진행할 수 있습니다. 연구를 ' \
+                     '진행하는 방법은 건물을 업그레이드 하는 방법과 동일하게 일정 조건 만족 후 재료를 소모하여 ' \
+                     '진행하실 수 있습니다.'
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "source": "Iron Throne service "
+        }
+
     else:
         return {}
 
