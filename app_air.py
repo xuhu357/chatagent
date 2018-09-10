@@ -46,7 +46,7 @@ def process_request(req):
         game_name = parameters.get("game_name")
         game_item = parameters.get("game_item")
         # game_item = parameters.get("game_item")
-        speech = ""
+        speech = "Response from WebService (구축중)"
 
         if game_item is None or not game_item:
 
