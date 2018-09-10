@@ -79,7 +79,7 @@ def process_request(req):
         result = req.get("result")
         parameters = result.get("parameters")
         game_goal = parameters.get("game_goal")
-        speech = ""
+        speech = "Response from WebService (구축중)"
 
         if game_goal == '영지 발전':
             speech = '1. 건물 건설과 업그레이드. ' \
